@@ -1,0 +1,25 @@
+{
+  "name": "crud-tractian-desafio",
+  "version": "1.0.0",
+  "description": "Desafio p/ processo seletivo Tractian",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --report spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedro-esquerdo/tractian-challange.git"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.17.1",
+    "mongoose": "*",
+    "request": "~2.82.0"
+  },
+  "author": "Pedro Esquerdo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedro-esquerdo/tractian-challange/issues"
+  },
+  "homepage": "https://github.com/pedro-esquerdo/tractian-challange#readme"
+}
