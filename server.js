@@ -274,5 +274,5 @@ router.route('/ativos')
 app.use('/api',router);
 
 // Iniciando a aplicação.
-app.listen(port);
+app.listen(process.env.PORT || 1337);
 console.log("Iniciando app na porta " + port);
