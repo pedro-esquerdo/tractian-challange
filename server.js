@@ -29,7 +29,7 @@
  app.use(cors());
 
  // Definindo porta para uso da API:
- var port = process.env.Port || 8000;
+ var port = process.env.Port || 1337;
 
  // Definir rotas via express
  var router = express.Router();
@@ -83,6 +83,8 @@ router.route('/ativos')
 
        });
    })   
+
+
    // Selcionar todos os ativos.(acessar: GET http://localhost:8000/api/ativos)
    .get(function(req, res){
        Ativo.find(function(error, ativos){
@@ -91,6 +93,18 @@ router.route('/ativos')
            res.json(ativos);
        });
    });
+
+   router.route('/ativos/idname')
+   .get(function(req, res){
+        Ativo.find(function(error, ativos){
+
+            console.log(ativos)
+
+            if(error)
+                res.send('Falha ao obter ativos' + error)
+            res.json(ativos);
+        });
+    });
 
 
    // Ativos por ID: (acessar: GET, PUT, DELETE http://localhost:8000/api/ativos/<ativo_id>)
@@ -102,7 +116,7 @@ router.route('/ativos')
        Ativo.findById(req.params.ativo_id, function(error,ativo){
         if(error)
             res.send('Erro ao achar ativo' + error);
-        res.json(ativo);
+        res.json(ativo);    
        });
    })
 
@@ -132,11 +146,14 @@ router.route('/ativos')
         });
     })
 
-   // Deletar ativo por ID (acessar: DELETE http://localhost:8000/api/ativos/<ativo_id>)
+   // Deletar ativo por ID (acessar: DELETE http://localhost:8000/api/ativos/delete)
+    router.route('/ativos/delete')
     .delete(function(req, res) {
 
+        console.log(req.query.ativo_id);
+
         Ativo.remove({
-            _id: req.params.ativo_id
+            _id: req.query.ativo_id
         }, function(error) {
             if(error)
                 res.send('Erro ao achar ativo' + error);

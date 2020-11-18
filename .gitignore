@@ -3,4 +3,4 @@ bin
 .vscode/*
 .DS_Store
 mongo.pdb.*
-*. bin/mongo.pdb
+*. bin/mongo.pdbg
